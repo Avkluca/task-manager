@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment files (secrets)
+.env
+.env.local
+*/.env
+*/.env.local
+
+# NOTE: .env.production is NOT ignored
+# because it only has a URL, no secrets
+
+# Build output
+build/
+dist/
+*/build/
+*/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(circle at top left, rgba(255, 213, 132, 0.5), transparent 22%),
+    radial-gradient(circle at 85% 18%, rgba(56, 111, 117, 0.18), transparent 24%),
+    linear-gradient(180deg, #f4e4cf 0%, #efe6da 45%, #e7dfd3 100%);
+  color: #1c2833;
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
