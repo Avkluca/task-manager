@@ -8,17 +8,27 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// ✅ CORS FIX
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://task-manager-puce-nu.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
+  credentials: true
+}));
+
+app.options('*', cors()); // 👈 important
+
 app.use(express.json());
 
-// Connect to Database
+// Connect DB
 connectDB();
 
 // Routes
 app.use('/api/tasks', taskRoutes);
 
-// Basic route
 app.get('/', (req, res) => {
   res.json({ message: 'Task Manager API' });
 });
