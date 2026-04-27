@@ -4,7 +4,8 @@ import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 import './App.css';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/tasks';
+const API_URL = process.env.REACT_APP_API_URL;
+console.log("API URL:", API_URL);
 
 function App() {
   const [tasks, setTasks] = useState([]);
