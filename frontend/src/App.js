@@ -4,7 +4,7 @@ import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 import './App.css';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = "https://akshayapp12345-fjatg0aefvgcdpdd.centralindia-01.azurewebsites.net/api/tasks";
 console.log("API URL:", API_URL);
 
 function App() {
