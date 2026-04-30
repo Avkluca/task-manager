@@ -2,7 +2,16 @@
 
 This folder defines a small Azure infrastructure setup for the Task Manager project.
 
-It is designed for an Azure for Students account by using Azure Static Web Apps on the Free tier and Azure Container Registry on the Basic SKU. The backend API URL is passed as an app setting, so the existing deployed backend can continue to be used.
+It is designed for an Azure for Students account by using Azure Static Web Apps on the Free tier, Azure Container Registry on the Basic SKU, and Azure Cosmos DB with the free tier enabled. The backend API URL is passed as an app setting, so the existing deployed backend can continue to be used.
+
+The Terraform configuration defines:
+
+- Azure Resource Group
+- Azure Container Registry
+- Azure Cosmos DB for NoSQL
+- Cosmos DB database named `taskmanagerdb`
+- Cosmos DB container named `tasks` with partition key `/id`
+- Azure Static Web App
 
 The resource group defaults to `Central India`, while the Static Web App defaults to `East US 2` because Static Web Apps are not available in every Azure region. If your subscription policy requires another supported Static Web Apps region, update `static_web_app_location` in `terraform.tfvars`.
 

@@ -28,6 +28,24 @@ variable "acr_name" {
   default     = "taskmanagerstudentacr"
 }
 
+variable "cosmos_account_name" {
+  description = "Globally unique Azure Cosmos DB account name."
+  type        = string
+  default     = "taskmanagerdbakshay"
+}
+
+variable "cosmos_database_name" {
+  description = "Azure Cosmos DB database name."
+  type        = string
+  default     = "taskmanagerdb"
+}
+
+variable "cosmos_container_name" {
+  description = "Azure Cosmos DB container name for tasks."
+  type        = string
+  default     = "tasks"
+}
+
 variable "backend_api_url" {
   description = "Backend API endpoint used by the React app."
   type        = string

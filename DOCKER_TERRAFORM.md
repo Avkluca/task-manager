@@ -14,9 +14,9 @@ Services:
 
 - Frontend: `http://localhost:3000`
 - Backend API: `http://localhost:5000`
-- MongoDB: `localhost:27017`
+- Azure Cosmos DB: `taskmanagerdb/tasks`
 
-The backend container receives `MONGO_URI=mongodb://mongo:27017/task-manager` from `docker-compose.yml`.
+The backend container receives Cosmos DB settings through `COSMOS_ENDPOINT`, `COSMOS_KEY`, `COSMOS_DATABASE`, and `COSMOS_CONTAINER`.
 
 Stop the containers with:
 

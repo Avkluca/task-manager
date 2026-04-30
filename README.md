@@ -93,11 +93,24 @@ task-manager-mern/
 - `PUT /api/tasks/:id` - Update a task
 - `DELETE /api/tasks/:id` - Delete a task
 
+## Azure Cosmos DB Migration
+
+The backend uses Azure Cosmos DB for NoSQL through the `@azure/cosmos` SDK. Configure these environment variables in local `.env` files or Azure App Service application settings:
+
+```bash
+COSMOS_ENDPOINT=https://your-cosmos-account.documents.azure.com:443/
+COSMOS_KEY=your-cosmos-primary-key
+COSMOS_DATABASE=taskmanagerdb
+COSMOS_CONTAINER=tasks
+```
+
+The Cosmos DB account should contain a database named `taskmanagerdb` and a container named `tasks` with partition key `/id`.
+
 ## Technologies Used
 
 - **Frontend**: React, Axios, CSS3
 - **Backend**: Node.js, Express.js
-- **Database**: MongoDB, Mongoose
+- **Database**: Azure Cosmos DB for NoSQL
 - **Tools**: npm, Nodemon, Docker, Terraform
 
 ## Docker
@@ -112,7 +125,7 @@ This starts:
 
 - React frontend on http://localhost:3000
 - Express backend on http://localhost:5000
-- MongoDB on localhost:27017
+- Azure Cosmos DB as the database backend
 
 ## Terraform
 

@@ -22,3 +22,18 @@ output "acr_name" {
   description = "Azure Container Registry name."
   value       = azurerm_container_registry.main.name
 }
+
+output "cosmos_endpoint" {
+  description = "Azure Cosmos DB endpoint used by the backend."
+  value       = azurerm_cosmosdb_account.main.endpoint
+}
+
+output "cosmos_database_name" {
+  description = "Azure Cosmos DB database name."
+  value       = azurerm_cosmosdb_sql_database.tasks.name
+}
+
+output "cosmos_container_name" {
+  description = "Azure Cosmos DB container name."
+  value       = azurerm_cosmosdb_sql_container.tasks.name
+}
