@@ -4,7 +4,9 @@ import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 import './App.css';
 
-const API_URL = "https://akshayapp12345-fjatg0aefvgcdpdd.centralindia-01.azurewebsites.net/api/tasks";
+const API_BASE_URL = "https://akshayapp12345-fjatg0aefvgcdpdd.centralindia-01.azurewebsites.net/api";
+const API_URL = `${API_BASE_URL}/tasks`;
+const AI_API_URL = `${API_BASE_URL}/ai/generate-task`;
 console.log("API URL:", API_URL);
 
 function App() {
@@ -83,7 +85,7 @@ function App() {
           </div>
         </section>
 
-        <TaskInput onAddTask={addTask} />
+        <TaskInput onAddTask={addTask} aiApiUrl={AI_API_URL} />
 
         <section className="tasks-panel">
           <div className="section-heading">

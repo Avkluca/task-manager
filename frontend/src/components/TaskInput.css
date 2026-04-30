@@ -82,6 +82,46 @@
   filter: brightness(1.05);
 }
 
+.task-input button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+.task-input .ai-button {
+  background: #173041;
+  box-shadow: 0 12px 26px rgba(23, 48, 65, 0.18);
+}
+
+.task-input .ai-button:hover {
+  box-shadow: 0 16px 30px rgba(23, 48, 65, 0.22);
+}
+
+.ai-result {
+  padding: 14px 16px;
+  border: 1px solid #d9cfc3;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.58);
+  color: #233543;
+}
+
+.ai-result p {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.ai-result ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.ai-error {
+  margin: 0;
+  color: #b44d21;
+  font-weight: 700;
+}
+
 @media (max-width: 680px) {
   .task-input {
     padding: 22px;
