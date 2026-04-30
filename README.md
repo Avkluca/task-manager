@@ -98,7 +98,36 @@ task-manager-mern/
 - **Frontend**: React, Axios, CSS3
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB, Mongoose
-- **Tools**: npm, Nodemon
+- **Tools**: npm, Nodemon, Docker, Terraform
+
+## Docker
+
+Run the full application locally with containers:
+
+```bash
+docker compose up --build
+```
+
+This starts:
+
+- React frontend on http://localhost:3000
+- Express backend on http://localhost:5000
+- MongoDB on localhost:27017
+
+## Terraform
+
+Infrastructure as Code files are available in the `terraform/` folder.
+
+The current Terraform setup is designed for an Azure for Students account and provisions a small Azure Static Web App configuration using the Free SKU.
+
+```bash
+cd terraform
+terraform init
+terraform plan
+terraform apply
+```
+
+See `DOCKER_TERRAFORM.md` for the full Docker and Terraform implementation notes.
 
 ## Next Steps
 

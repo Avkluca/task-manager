@@ -1,0 +1,5 @@
+resource_group_name     = "rg-task-manager-student"
+location                = "Central India"
+static_web_app_location = "East US 2"
+static_web_app_name     = "task-manager-student-swa"
+backend_api_url         = "https://akshayapp12345-fjatg0aefvgcdpdd.centralindia-01.azurewebsites.net/api/tasks"

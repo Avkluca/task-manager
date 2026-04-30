@@ -17,6 +17,14 @@ dist/
 */build/
 */dist/
 
+# Terraform local files
+.terraform/
+*/.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+.terraform.lock.hcl
+
 # Logs
 *.log
 npm-debug.log*
