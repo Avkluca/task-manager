@@ -6,7 +6,7 @@ ARG REACT_APP_API_URL=http://localhost:5000/api/tasks
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
 COPY . .
 RUN npm run build
