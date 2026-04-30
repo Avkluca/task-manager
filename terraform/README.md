@@ -11,6 +11,9 @@ The Terraform configuration defines:
 - Azure Cosmos DB for NoSQL
 - Cosmos DB database named `taskmanagerdb`
 - Cosmos DB container named `tasks` with partition key `/id`
+- Azure Key Vault for security secrets
+- Log Analytics Workspace
+- Application Insights for monitoring
 - Azure Static Web App
 
 The resource group defaults to `Central India`, while the Static Web App defaults to `East US 2` because Static Web Apps are not available in every Azure region. If your subscription policy requires another supported Static Web Apps region, update `static_web_app_location` in `terraform.tfvars`.

@@ -37,3 +37,19 @@ output "cosmos_container_name" {
   description = "Azure Cosmos DB container name."
   value       = azurerm_cosmosdb_sql_container.tasks.name
 }
+
+output "key_vault_name" {
+  description = "Azure Key Vault name used for security secrets."
+  value       = azurerm_key_vault.main.name
+}
+
+output "application_insights_name" {
+  description = "Application Insights resource name used for monitoring."
+  value       = azurerm_application_insights.backend.name
+}
+
+output "application_insights_connection_string" {
+  description = "Application Insights connection string for app instrumentation."
+  value       = azurerm_application_insights.backend.connection_string
+  sensitive   = true
+}

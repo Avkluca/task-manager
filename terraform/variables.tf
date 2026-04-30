@@ -46,6 +46,31 @@ variable "cosmos_container_name" {
   default     = "tasks"
 }
 
+variable "key_vault_name" {
+  description = "Globally unique Azure Key Vault name."
+  type        = string
+  default     = "taskkvakshay"
+}
+
+variable "cosmos_key_secret_value" {
+  description = "Optional Cosmos DB key value to store as the COSMOS-KEY Key Vault secret."
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
+variable "log_analytics_workspace_name" {
+  description = "Name of the Log Analytics workspace used by Application Insights."
+  type        = string
+  default     = "taskmanager-logs"
+}
+
+variable "application_insights_name" {
+  description = "Name of the Application Insights resource for backend monitoring."
+  type        = string
+  default     = "taskmanager-appinsights"
+}
+
 variable "backend_api_url" {
   description = "Backend API endpoint used by the React app."
   type        = string
