@@ -13,6 +13,8 @@ jobs:
   docker-build:
     runs-on: ubuntu-latest
     name: Build and Push Docker Images
+    env:
+      ACR_LOGIN_SERVER: taskmanagerakshayacr.azurecr.io
 
     steps:
       - name: Checkout repository
@@ -24,7 +26,7 @@ jobs:
       - name: Log in to Azure Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ secrets.ACR_LOGIN_SERVER }}
+          registry: ${{ env.ACR_LOGIN_SERVER }}
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
@@ -35,8 +37,8 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: |
-            ${{ secrets.ACR_LOGIN_SERVER }}/task-manager-backend:latest
-            ${{ secrets.ACR_LOGIN_SERVER }}/task-manager-backend:${{ github.sha }}
+            ${{ env.ACR_LOGIN_SERVER }}/task-manager-backend:latest
+            ${{ env.ACR_LOGIN_SERVER }}/task-manager-backend:${{ github.sha }}
 
       - name: Build and push frontend image
         uses: docker/build-push-action@v6
@@ -45,7 +47,7 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: |
-            ${{ secrets.ACR_LOGIN_SERVER }}/task-manager-frontend:latest
-            ${{ secrets.ACR_LOGIN_SERVER }}/task-manager-frontend:${{ github.sha }}
+            ${{ env.ACR_LOGIN_SERVER }}/task-manager-frontend:latest
+            ${{ env.ACR_LOGIN_SERVER }}/task-manager-frontend:${{ github.sha }}
           build-args: |
             REACT_APP_API_URL=http://localhost:5000/api/tasks
