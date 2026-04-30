@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import './TaskInput.css';
 
-function TaskInput({ onAddTask, aiApiUrl }) {
+function TaskInput({ onAddTask }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [subtasks, setSubtasks] = useState([]);
-  const [priority, setPriority] = useState('');
-  const [aiLoading, setAiLoading] = useState(false);
-  const [aiError, setAiError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,31 +11,6 @@ function TaskInput({ onAddTask, aiApiUrl }) {
       onAddTask(title, description);
       setTitle('');
       setDescription('');
-      setSubtasks([]);
-      setPriority('');
-      setAiError('');
-    }
-  };
-
-  const handleGenerateWithAI = async () => {
-    if (!title.trim()) {
-      setAiError('Please enter a task title first.');
-      return;
-    }
-
-    setAiLoading(true);
-    setAiError('');
-
-    try {
-      const response = await axios.post(aiApiUrl, { title });
-      setDescription(response.data.description || '');
-      setSubtasks(response.data.subtasks || []);
-      setPriority(response.data.priority || '');
-    } catch (error) {
-      console.error('Error generating task with AI:', error);
-      setAiError('Could not generate task details. Please try again.');
-    } finally {
-      setAiLoading(false);
     }
   };
 
@@ -65,15 +35,6 @@ function TaskInput({ onAddTask, aiApiUrl }) {
         />
       </label>
 
-      <button
-        className="ai-button"
-        type="button"
-        onClick={handleGenerateWithAI}
-        disabled={aiLoading}
-      >
-        {aiLoading ? 'Generating...' : 'Generate with AI'}
-      </button>
-
       <label className="field-group">
         <span>Description</span>
         <textarea
@@ -83,21 +44,6 @@ function TaskInput({ onAddTask, aiApiUrl }) {
           rows="4"
         />
       </label>
-
-      {(subtasks.length > 0 || priority) && (
-        <div className="ai-result">
-          {priority && <p>Priority: {priority}</p>}
-          {subtasks.length > 0 && (
-            <ul>
-              {subtasks.map((subtask, index) => (
-                <li key={`${subtask}-${index}`}>{subtask}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      )}
-
-      {aiError && <p className="ai-error">{aiError}</p>}
 
       <button type="submit">Create Task</button>
     </form>

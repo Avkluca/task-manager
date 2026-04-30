@@ -3,7 +3,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const taskRoutes = require('./routes/taskRoutes');
-const aiRoutes = require('./routes/aiRoutes');
 
 dotenv.config();
 
@@ -19,7 +18,6 @@ connectDB();
 
 // Routes
 app.use('/api/tasks', taskRoutes);
-app.use('/api/ai', aiRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Task Manager API is running' });
