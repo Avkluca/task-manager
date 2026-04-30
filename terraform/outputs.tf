@@ -12,3 +12,13 @@ output "static_web_app_default_host_name" {
   description = "Default hostname for the Azure Static Web App."
   value       = azurerm_static_web_app.frontend.default_host_name
 }
+
+output "acr_login_server" {
+  description = "Azure Container Registry login server used by Docker."
+  value       = azurerm_container_registry.main.login_server
+}
+
+output "acr_name" {
+  description = "Azure Container Registry name."
+  value       = azurerm_container_registry.main.name
+}

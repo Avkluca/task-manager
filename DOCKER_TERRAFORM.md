@@ -30,7 +30,19 @@ Remove the local MongoDB volume if you want a clean database:
 docker compose down -v
 ```
 
-If Docker is not installed locally, the repository also includes a GitHub Actions workflow at `.github/workflows/docker-build.yml`. It builds the backend and frontend Docker images on GitHub's Ubuntu runner, which verifies that the Dockerfiles are valid without requiring Docker Desktop on the local Windows machine.
+If Docker is not installed locally, the repository also includes a GitHub Actions workflow at `.github/workflows/docker-build.yml`. It builds the backend and frontend Docker images on GitHub's Ubuntu runner and pushes them to Azure Container Registry.
+
+Required GitHub repository secrets for ACR push:
+
+- `ACR_LOGIN_SERVER`
+- `ACR_USERNAME`
+- `ACR_PASSWORD`
+
+The pushed images are:
+
+- `task-manager-backend:latest`
+- `task-manager-frontend:latest`
+- commit-SHA tagged versions of both images
 
 ## Terraform
 
@@ -39,6 +51,7 @@ Terraform files are in the `terraform/` folder.
 The current configuration creates:
 
 - Azure Resource Group
+- Azure Container Registry using the Basic SKU
 - Azure Static Web App using the Free SKU
 - App setting for the backend API URL
 

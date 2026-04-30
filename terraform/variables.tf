@@ -22,6 +22,12 @@ variable "static_web_app_name" {
   default     = "task-manager-student-swa"
 }
 
+variable "acr_name" {
+  description = "Globally unique Azure Container Registry name. Use only letters and numbers."
+  type        = string
+  default     = "taskmanagerstudentacr"
+}
+
 variable "backend_api_url" {
   description = "Backend API endpoint used by the React app."
   type        = string
